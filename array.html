@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Array</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+
+        body{
+            background-color: rgb(107, 12, 57);
+            font-size: 30px;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+        .form{
+
+            background-color: aliceblue;
+            max-width: 800px;
+            width: 70%;
+            position:absolute;
+            padding: 20px;
+            left:50%;
+            top: 50%;
+            text-align: center;
+            transform: translate(-50%,-50%);
+
+        }
+        .input[type=text]{
+            width: 100%;
+            height: 45px;
+            font-size: 1rem;
+            border: 1px solid rgb(12, 11, 12);
+            margin: 15px 0;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="form">
+
+    <h1>Teste</h1>
+    <p id="mudar"></p>
+    <p><input type="text" id="digitada" class="input"></p>
+    <button onclick="mudarray()">Adiciona</button> 
+    <button onclick="zera()"> Zera Array</button>
+    <button onclick="removeultimo()"> Remove o último</button>
+    <button onclick="removeprimeiro()"> Remove o Primeiro</button>
+    <button onclick="adicionainicio()">Adiciona no Início</button>
+    <button onclick="junta()">Junta a Algo</button>
+    
+    <p> Tamanho do array de:<p id="tarray"></p></p>
+    <button onclick="tamanhoarray()">Tamanho do array</button>
+    <p>Inserir elemento em que posição?  <input type="text" name="" id="number"></p>
+    <button onclick="inserirem()"> Inerir</button>
+
+</div>
+
+    <script>
+
+       let frutas= [ "Maça", "Banana" , "Pera", "Tomate"]
+  alert(frutas);
+
+  var local = prompt();
+       document.getElementById("mudar").innerHTML=frutas; 
+
+       frutas.push(local) ;
+
+       alert(frutas);
+       
+        function mudarray(){
+            var adiciona = document.getElementById("digitada").value;
+       
+          frutas.push(adiciona) ;
+
+          document.getElementById("mudar").innerHTML=frutas; 
+
+        }
+
+        function zera() {
+
+            frutas.splice(0,frutas.length);
+            document.getElementById("mudar").innerHTML= frutas.length; 
+
+
+        }
+        function removeultimo(){
+            frutas.pop();
+            document.getElementById("mudar").innerHTML=frutas; 
+        }
+        function removeprimeiro(){
+
+            frutas.shift();
+            document.getElementById("mudar").innerHTML=frutas;
+        }
+        function adicionainicio(){
+            var adiciona = document.getElementById("digitada").value;
+            frutas.unshift(adiciona);
+            document.getElementById("mudar").innerHTML=frutas;
+
+        }
+        function tamanhoarray(){
+    
+
+            document.getElementById("tarray").innerHTML=frutas.length;
+        }
+        function inserirem(){
+            var inserir = document.getElementById("number").value;
+            var adiciona = document.getElementById("digitada").value;
+
+            frutas.splice(inserir,0,adiciona );
+            document.getElementById("mudar").innerHTML=frutas;
+
+        }
+
+        function junta() {
+
+            var adiciona = document.getElementById("digitada").value;
+document.getElementById("mudar").innerHTML= frutas.join(adiciona); 
+
+
+}
+    </script>
+
+</body>
+</html>
